@@ -156,7 +156,7 @@
             playsinline
             id="massageVideo"
         >
-            <source src="avid.mp4" type="video/mp4">
+            <source id="heroVideoSource" src="avid.mp4" type="video/mp4">
         </video>
         <!--  <video 
             class="absolute inset-0 w-full h-full object-cover opacity-0 video-fade"
@@ -642,6 +642,36 @@
                 showImg = !showImg;
             }, 10000);
         }
+
+        // Hero section video loop through multiple videos, 5 seconds each
+        const heroVideo = document.getElementById('massageVideo');
+        const heroSource = document.getElementById('heroVideoSource');
+        const heroVideos = [
+            'back2.mp4',
+            'calf.mp4',
+            'legdrain.mp4',
+            'drain.mp4',
+            'neckmassage.mp4',
+            'back.mp4',
+            'sportsmassage.mp4'
+        ];
+        let heroIndex = 0;
+        function playNextHeroVideo() {
+            heroSource.src = heroVideos[heroIndex];
+            heroVideo.load();
+            heroVideo.currentTime = 0;
+            heroVideo.play();
+            setTimeout(() => {
+                heroIndex = (heroIndex + 1) % heroVideos.length;
+                playNextHeroVideo();
+            }, 5000);
+        }
+        heroVideo.addEventListener('loadedmetadata', () => {
+            heroVideo.currentTime = 0;
+            heroVideo.play();
+        });
+        // Start the loop after DOM is ready
+        playNextHeroVideo();
     </script>
 
     
