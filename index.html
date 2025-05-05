@@ -209,7 +209,7 @@
                 <p>I'm a fully qualified Level 3 and Level 4 Sports Massage Therapist, having completed my training with the highly regarded Cotswold Academy in Cirencester (2022). My qualifications allow me to assess and treat a wide range of musculoskeletal issues, from sports-related injuries to everyday aches and tension. With advanced techniques and a strong understanding of anatomy, I tailor each treatment to support recovery, enhance performance, and promote overall wellbeing.</p>
             </div>
             <div class="relative">
-                <img src="massage.jpeg" alt="Professional sports massage treatment" class="rounded-lg shadow-lg w-full object-cover transform hover:scale-105 transition-transform duration-300" />
+                <img src="angelheadshot.jpeg" alt="Professional sports massage treatment" class="rounded-lg shadow-lg w-full object-cover transform hover:scale-105 transition-transform duration-300" />
             </div>
         </div>
     </section>
@@ -265,9 +265,7 @@
                         </div>
                     </div>
                     <div class="relative mb-4">
-                        <div class="absolute top-2 left-2 bg-[#1B6C6D] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
-                            20% off first booking
-                        </div>
+                       
                         <video src="avid.mp4" alt="Tension Release Massage Treatment" class="w-full h-48 object-cover rounded-lg mb-4" style="object-position: center 70%;" autoplay muted loop playsinline></video>
                     </div>
                     <p class="text-gray-600">Sports massage is a specialised form of massage therapy designed to enhance athletic performance and support individuals with active lifestyles. Whether you're a professional athlete, a dedicated gym-goer, or someone with a physically demanding job, this treatment can help you achieve your goals and maintain optimal physical condition.</p>
@@ -284,9 +282,7 @@
                         </div>
                     </div>
                     <div class="relative mb-4">
-                        <div class="absolute top-2 left-2 bg-[#1B6C6D] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
-                            20% off first booking
-                        </div>
+                        
                         <img src="cup.jpeg" alt="Dry Cupping Treatment" class="w-full h-48 object-cover rounded-lg">
                     </div>
                     <p class="text-gray-600">A suction force inside the cup pulls your skin upward. This suction force expands and breaks open tiny blood vessels (capillaries) under your skin. Your body replenishes the cupped areas with healthier blood flow and stimulates proper and normal healing at a cellular level.</p>
@@ -303,9 +299,7 @@
                         </div>
                     </div>
                     <div class="relative mb-4">
-                        <div class="absolute top-2 left-2 bg-[#1B6C6D] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
-                            20% off first booking
-                        </div>
+                       
                         <video id="backVideo" src="back.mp4" alt="Lymphatic Drainage Treatment" class="w-full h-48 object-cover rounded-lg mb-4" autoplay muted loop playsinline></video>
                         <video id="back2Video" src="back2.mp4" alt="Leg Lymphatic Drainage Treatment" class="w-full h-48 object-cover rounded-lg mb-4 hidden" autoplay muted loop playsinline></video>
                     </div>
@@ -323,9 +317,7 @@
                         </div>
                     </div>
                     <div class="relative mb-4" style="min-height: 12rem;">
-                        <div class="absolute top-2 left-2 bg-[#1B6C6D] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
-                            20% off first booking
-                        </div>
+                        
                         <video id="softTissueVid" src="neckmassage.mp4" alt="Neck Massage Video" class="w-full h-48 object-cover rounded-lg mb-4 fade-transition fade-hidden" style="object-position: center 70%;" autoplay muted loop playsinline></video>
                         <img id="softTissueImg" src="aneck.jpeg" alt="Tension Release Massage Treatment" class="w-full h-48 object-cover rounded-lg mb-4 fade-transition fade-visible">
                     </div>
@@ -342,9 +334,9 @@
                         </div>
                     </div>
                     <div class="relative mb-4">
-                        <div class="absolute top-2 left-2 bg-[#1B6C6D] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
+                       <!-- <div class="absolute top-2 left-2 bg-[#1B6C6D] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
                             20% off first booking
-                        </div>
+                        </div> -->
                         <video id="drainVideo" src="drain.mp4" alt="Lymphatic Drainage Treatment" class="w-full h-48 object-cover rounded-lg mb-4" autoplay muted loop playsinline></video>
                         <video id="legDrainVideo" src="legdrain.mp4" alt="Leg Lymphatic Drainage Treatment" class="w-full h-48 object-cover rounded-lg mb-4 hidden" autoplay muted loop playsinline></video>
                     </div>
@@ -682,13 +674,13 @@
                 heroVideo.oncanplay = () => {
                     setTimeout(() => {
                         heroFade.classList.remove('active');
-                    }, 400); // fade in quickly after video loads
+                    }, 200); // fade in quickly after video loads
                 };
                 setTimeout(() => {
                     heroIndex = (heroIndex + 1) % heroVideos.length;
                     playNextHeroVideo();
                 }, 5000);
-            }, 600); // fade out duration
+            }, 200); // fade out duration
         }
         // Start the loop after DOM is ready
         playNextHeroVideo();
