@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Massage Therapy</title>
+    <title>Massage Therapy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Allura&display=swap" rel="stylesheet">
     <style>
@@ -85,6 +85,24 @@
             opacity: 0;
             max-height: 0;
             padding-bottom: 0;
+        }
+        .fade-transition {
+            transition: opacity 1s ease;
+            opacity: 1;
+        }
+        .fade-hidden {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .fade-visible {
+            opacity: 1;
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
@@ -245,7 +263,7 @@
                         <div class="absolute top-2 left-2 bg-[#1B6C6D] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
                             20% off first booking
                         </div>
-                        <video src="avid.mp4" alt="Tension Release Massage Treatment" class="w-full h-48 object-cover rounded-lg mb-4" autoplay muted loop playsinline></video>
+                        <video src="avid.mp4" alt="Tension Release Massage Treatment" class="w-full h-48 object-cover rounded-lg mb-4" style="object-position: center 70%;" autoplay muted loop playsinline></video>
                     </div>
                     <p class="text-gray-600">Sports massage is a specialised form of massage therapy designed to enhance athletic performance and support individuals with active lifestyles. Whether you're a professional athlete, a dedicated gym-goer, or someone with a physically demanding job, this treatment can help you achieve your goals and maintain optimal physical condition.</p>
                     <p class="text-gray-600 mt-2">Involves stretching, muscle energy technique, myofascial release and trigger points.</p>
@@ -283,7 +301,8 @@
                         <div class="absolute top-2 left-2 bg-[#1B6C6D] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
                             20% off first booking
                         </div>
-                        <img src="massage1.jpeg" alt="Tension Release Massage Treatment" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <video id="backVideo" src="back.mp4" alt="Lymphatic Drainage Treatment" class="w-full h-48 object-cover rounded-lg mb-4" autoplay muted loop playsinline></video>
+                        <video id="back2Video" src="back2.mp4" alt="Leg Lymphatic Drainage Treatment" class="w-full h-48 object-cover rounded-lg mb-4 hidden" autoplay muted loop playsinline></video>
                     </div>
                     <p class="text-gray-600">Manual therapy that focuses on treating a wide range of musculoskeletal issues. This includes muscular imbalances, postural problems, chronic pain, and injuries.</p>
                     <p class="text-gray-600 mt-2">The primary goal of this therapy is to alleviate pain, restore function, and promote overall well-being by addressing the underlying causes of discomfort in the soft tissues, such as muscles, tendons, ligaments, and fascia.</p>
@@ -298,11 +317,12 @@
                             <p class="text-sm text-gray-500">1 hour</p>
                         </div>
                     </div>
-                    <div class="relative mb-4">
+                    <div class="relative mb-4" style="min-height: 12rem;">
                         <div class="absolute top-2 left-2 bg-[#1B6C6D] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
                             20% off first booking
                         </div>
-                        <img src="aneck.jpeg" alt="Tension Release Massage Treatment" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <video id="softTissueVid" src="neckmassage.mp4" alt="Neck Massage Video" class="w-full h-48 object-cover rounded-lg mb-4 fade-transition fade-hidden" style="object-position: center 70%;" autoplay muted loop playsinline></video>
+                        <img id="softTissueImg" src="aneck.jpeg" alt="Tension Release Massage Treatment" class="w-full h-48 object-cover rounded-lg mb-4 fade-transition fade-visible">
                     </div>
                     <p class="text-gray-600">Full body treatment head to toe with aromatherapy oils. With medium to light pressure to help you switch off and relax. It improves your circulation and blood flow, so your organs and skin get more oxygen; aiding with lymphatic drainage.</p>
                 </div>
@@ -320,7 +340,8 @@
                         <div class="absolute top-2 left-2 bg-[#1B6C6D] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
                             20% off first booking
                         </div>
-                        <img src="aneck.jpeg" alt="Tension Release Massage Treatment" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <video id="drainVideo" src="drain.mp4" alt="Lymphatic Drainage Treatment" class="w-full h-48 object-cover rounded-lg mb-4" autoplay muted loop playsinline></video>
+                        <video id="legDrainVideo" src="legdrain.mp4" alt="Leg Lymphatic Drainage Treatment" class="w-full h-48 object-cover rounded-lg mb-4 hidden" autoplay muted loop playsinline></video>
                     </div>
                     <p class="text-gray-600">An energising and invigorating treatment designed to stimulate the lymphatic system and promote detoxification. This session begins with gentle lymphatic pumping techniques to encourage fluid movement and boost circulation, followed by a more dynamic remodelling massage focused on breaking down fatty deposits and improving the texture of the interstitial tissue.
                         Perfect if you're concerned about areas such as the thighs, hips, tummy, or back of the arms — whether it's cellulite, puffiness, or stubborn weight.
@@ -550,7 +571,77 @@
             });
         });
 
-        
+        // Video rotation for lymphatic drainage section
+        const drainVideo = document.getElementById('drainVideo');
+        const legDrainVideo = document.getElementById('legDrainVideo');
+        if (drainVideo && legDrainVideo) {
+            let showDrain = true;
+            setInterval(() => {
+                showDrain = !showDrain;
+                if (showDrain) {
+                    drainVideo.classList.remove('hidden');
+                    legDrainVideo.classList.add('hidden');
+                    drainVideo.currentTime = 0;
+                    drainVideo.play();
+                    legDrainVideo.pause();
+                } else {
+                    legDrainVideo.classList.remove('hidden');
+                    drainVideo.classList.add('hidden');
+                    legDrainVideo.currentTime = 0;
+                    legDrainVideo.play();
+                    drainVideo.pause();
+                }
+            }, 8000);
+        }
+
+        // Video rotation for lymphatic drainage section
+        const backVideo = document.getElementById('backVideo');
+        const back2Video = document.getElementById('back2Video');
+        if (backVideo && back2Video) {
+            let showBack = true;
+            setInterval(() => {
+                showBack = !showBack;
+                if (showBack) {
+                    backVideo.classList.remove('hidden');
+                    back2Video.classList.add('hidden');
+                    backVideo.currentTime = 0;
+                    backVideo.play();
+                    back2Video.pause();
+                } else {
+                    back2Video.classList.remove('hidden');
+                    backVideo.classList.add('hidden');
+                    back2Video.currentTime = 0;
+                    back2Video.play();
+                    backVideo.pause();
+                }
+            }, 8000);
+        }
+
+        // Rotation for Restore Relaxing Soft Tissue section with fade
+        const softTissueImg = document.getElementById('softTissueImg');
+        const softTissueVid = document.getElementById('softTissueVid');
+        if (softTissueImg && softTissueVid) {
+            let showImg = true;
+            setInterval(() => {
+                if (showImg) {
+                    // Fade out image, fade in video
+                    softTissueImg.classList.remove('fade-visible');
+                    softTissueImg.classList.add('fade-hidden');
+                    softTissueVid.classList.remove('fade-hidden');
+                    softTissueVid.classList.add('fade-visible');
+                    softTissueVid.currentTime = 0;
+                    softTissueVid.play();
+                } else {
+                    // Fade out video, fade in image
+                    softTissueVid.classList.remove('fade-visible');
+                    softTissueVid.classList.add('fade-hidden');
+                    softTissueImg.classList.remove('fade-hidden');
+                    softTissueImg.classList.add('fade-visible');
+                    softTissueVid.pause();
+                }
+                showImg = !showImg;
+            }, 10000);
+        }
     </script>
 
     
