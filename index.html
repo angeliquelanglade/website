@@ -140,6 +140,16 @@
         .hero-fade.active {
             opacity: 1;
         }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: none;
+        }
     </style>
    
 </head>
@@ -224,7 +234,7 @@
         
 
     <!-- Professional Qualifications Section -->
-    <section class="max-w-6xl mx-auto mb-20 bg-white p-8 rounded-2xl shadow-[0_20px_50px_rgba(27,108,109,0.1)] border-[#1B6C6D] border-t-4">
+    <section class="max-w-6xl mx-auto mb-20 bg-white p-8 rounded-2xl shadow-[0_20px_50px_rgba(27,108,109,0.1)] border-[#1B6C6D] border-t-4 fade-in">
         <h2 class="text-3xl font-bold mb-10 text-center text-black border-b-2 border-[#1B6C6D] pb-4 w-fit mx-auto">
             Professional Qualifications & Insurance
         </h2>
@@ -242,7 +252,7 @@
 
     <!-- Benefits Section -->
     
-        <section class="max-w-6xl mx-auto mb-20 bg-white p-8 rounded-2xl shadow-[0_20px_50px_rgba(27,108,109,0.1)] border-[#1B6C6D] border-t-4">
+        <section class="max-w-6xl mx-auto mb-20 bg-white p-8 rounded-2xl shadow-[0_20px_50px_rgba(27,108,109,0.1)] border-[#1B6C6D] border-t-4 fade-in">
             <h2 class="text-3xl font-bold mb-10 text-center text-black border-b-2 border-[#1B6C6D] pb-4 w-fit mx-auto">
                 Why Choose My Treatments?
             </h2>
@@ -276,7 +286,7 @@
 
 
         <!-- Services Section -->
-        <section class="max-w-6xl mx-auto mb-20 bg-white p-8 rounded-2xl shadow-[0_20px_50px_rgba(27,108,109,0.1)] border-[#1B6C6D] border-t-4">
+        <section class="max-w-6xl mx-auto mb-20 bg-white p-8 rounded-2xl shadow-[0_20px_50px_rgba(27,108,109,0.1)] border-[#1B6C6D] border-t-4 fade-in">
             <h2 id="treatment-services" class="text-3xl font-bold mb-10 text-center text-black border-b-2 border-[#1B6C6D] pb-4 w-fit mx-auto">
                 My Treatment Services
             </h2>
@@ -388,7 +398,7 @@
         </section>
 
         <!-- Auto-Advancing Fade Testimonial -->
-        <section id="reviews" class="max-w-6xl mx-auto mb-20 bg-white p-8 rounded-2xl shadow-[0_20px_50px_rgba(27,108,109,0.1)] border-[#1B6C6D] border-t-4 mt-20 relative z-10">
+        <section id="reviews" class="max-w-6xl mx-auto mb-20 bg-white p-8 rounded-2xl shadow-[0_20px_50px_rgba(27,108,109,0.1)] border-[#1B6C6D] border-t-4 mt-20 relative z-10 fade-in">
           <h2 class="text-3xl font-bold mb-10 text-center text-black border-b-2 border-[#1B6C6D] pb-4 w-fit mx-auto">What Clients Say</h2>
           <div class="relative min-h-[220px] pb-8">
             <div class="testimonial-fade-slide block transition-opacity duration-1000 w-full" style="opacity:1;">
@@ -446,7 +456,7 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="max-w-6xl mx-auto mb-20 bg-white p-8 rounded-2xl shadow-[0_20px_50px_rgba(27,108,109,0.1)] border-[#1B6C6D] border-t-4">
+        <section class="max-w-6xl mx-auto mb-20 bg-white p-8 rounded-2xl shadow-[0_20px_50px_rgba(27,108,109,0.1)] border-[#1B6C6D] border-t-4 fade-in">
             <h2 class="text-3xl font-bold mb-6 text-center text-black border-b-2 border-[#1B6C6D] pb-4 w-fit mx-auto">
                 Frequently Asked Questions
             </h2>
@@ -545,10 +555,8 @@
 
             <!-- Bottom Bar -->
             <div class="border-t border-white/20 mt-8 pt-8 text-center">
-                <p class="text-sm">© 2024 Restore with Angel. All rights reserved.</p>
-            </div>
-            <div class="border-t border-white/20 mt-8 pt-8 text-center">
-                <p class="text-sm">Website by </p>
+                <p class="text-sm">© 2025 Restore with Angel. All rights reserved.</p>
+                <p class="text-sm">Website by UC23</p>
             </div>
         </div>
     </footer>
@@ -728,7 +736,7 @@
                 heroVideo.oncanplay = () => {
                     setTimeout(() => {
                         heroFade.classList.remove('active');
-                    }, 00); // fade in quickly after video loads
+                    }, 0); // fade in quickly after video loads
                 };
                 setTimeout(() => {
                     heroIndex = (heroIndex + 1) % heroVideos.length;
@@ -797,6 +805,22 @@
       },
       "url": "https://restorewithangel.com/"
     }
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faders = document.querySelectorAll('.fade-in');
+      function onScroll() {
+        faders.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            el.classList.add('visible');
+          }
+        });
+      }
+      window.addEventListener('scroll', onScroll);
+      onScroll(); // trigger on load
+    });
     </script>
 </body>
 </html>
