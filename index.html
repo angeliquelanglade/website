@@ -155,6 +155,18 @@
                 display: none !important;
             }
         }
+        .calm-float {
+            animation: calmFloat 6s ease-in-out infinite;
+        }
+        @keyframes calmFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+        .calm-glow:hover {
+            box-shadow: 0 0 24px 0 rgba(27, 108, 109, 0.18), 0 0 0 4px #C2E6E3;
+            transition: box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
     </style>
    
 </head>
@@ -262,25 +274,25 @@
                 Why Choose My Treatments?
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow calm-float calm-glow">
                     <div class="flex items-center mb-4">
                         <h3 class="text-xl font-semibold ml-4">Performance Enhancement</h3>
                     </div>
                     <p class="text-gray-600">Improve flexibility, reduce muscle tension, and optimize your athletic performance.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow calm-float calm-glow">
                     <div class="flex items-center mb-4">
                         <h3 class="text-xl font-semibold ml-4">Injury Prevention</h3>
                     </div>
                     <p class="text-gray-600">Regular treatments help prevent sports injuries and maintain muscle health.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow calm-float calm-glow">
                     <div class="flex items-center mb-4">
                         <h3 class="text-xl font-semibold ml-4">Recovery Support</h3>
                     </div>
                     <p class="text-gray-600">Accelerate recovery between training sessions and after competitions.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow calm-float calm-glow">
                     <div class="flex items-center mb-4">
                         <h3 class="text-xl font-semibold ml-4">Restore and relaxtion</h3>
                     </div>
@@ -362,7 +374,9 @@
                         <video id="softTissueVid" src="neckmassage.mp4" alt="Neck massage for relaxation and pain relief in Reading, UK" class="w-full h-48 object-cover rounded-lg mb-4 fade-transition fade-hidden" style="object-position: center 70%;" autoplay muted loop playsinline></video>
                         <img id="softTissueImg" src="aneck.jpeg" alt="Soft tissue massage for relaxation in Reading, UK" class="w-full h-48 object-cover rounded-lg mb-4 fade-transition fade-visible">
                     </div>
-                    <p class="text-gray-600">Full body treatment head to toe with aromatherapy oils. With medium to light pressure to help you switch off and relax. It improves your circulation and blood flow, so your organs and skin get more oxygen; aiding with lymphatic drainage.</p>
+                    <p class="text-gray-600">Full body treatment head to toe with aromatherapy oils. With medium to light pressure to help you switch off and relax. It improves your circulation and blood flow, so your organs and skin get more oxygen; aiding with lymphatic drainage.
+                        Suitable for expectant mothers after the first trimester, come and relax with me in a safe, supportive environment using specially selected pregnancy-safe body oil.
+                    </p>
                 </div>
 
                 <!-- Restore Relaxing Soft Tissue -->
@@ -383,7 +397,7 @@
                     </div>
                     <p class="text-gray-600">An energising and invigorating treatment designed to stimulate the lymphatic system and promote detoxification. This session begins with gentle lymphatic pumping techniques to encourage fluid movement and boost circulation, followed by a more dynamic remodelling massage focused on breaking down fatty deposits and improving the texture of the interstitial tissue.
                         Perfect if you're concerned about areas such as the thighs, hips, tummy, or back of the arms — whether it's cellulite, puffiness, or stubborn weight.
-                        Feel lighter, refreshed, and more confident in your skin.</p>
+                        Feel lighter, refreshed, and more confident in your skin. Also ideal for postnatal recovery, this treatment gently supports your body's healing and rebalancing process after childbirth. Come whenever you feel ready and comfortable; I'll ensure a nurturing and restorative experience tailored to your needs.</p>
                 </div>
 
                 <!-- Pregnancy -->
@@ -403,7 +417,7 @@
                     </div>
                     <p class="text-gray-600">A soothing and supportive full-body massage designed specifically for expectant mothers after the first trimester. This treatment focuses on relieving common pregnancy discomforts such as back pain, swollen legs, and muscle tension, while promoting deep relaxation and emotional well-being.
 
-                        You’re welcome to come in comfortable clothing, and you’ll be positioned safely and comfortably on your side during part of the treatment to ensure full support for you and your baby. A gentle, pregnancy-safe oil will be used to nourish your skin and enhance relaxation.
+                        You're welcome to come in comfortable clothing, and you'll be positioned safely and comfortably on your side during part of the treatment to ensure full support for you and your baby. A gentle, pregnancy-safe oil will be used to nourish your skin and enhance relaxation.
                         
                         Take this time to rest, reconnect, and feel cared for in a calm and nurturing space.</p>
                 </div>
