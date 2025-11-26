@@ -167,6 +167,90 @@
             box-shadow: 0 0 24px 0 rgba(27, 108, 109, 0.18), 0 0 0 4px #C2E6E3;
             transition: box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
+        /* Christmas Voucher Popup */
+        .voucher-popup {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            background: linear-gradient(135deg, #1B6C6D 0%, #155859 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            max-width: 320px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            border: 2px solid #C2E6E3;
+        }
+        .voucher-popup.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .voucher-popup .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .voucher-popup .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        @media (max-width: 768px) {
+            .voucher-popup {
+                right: 16px;
+                bottom: 80px;
+                max-width: calc(100% - 32px);
+            }
+        }
+        /* Floating Voucher Button */
+        .voucher-float-btn {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            z-index: 999;
+            background: linear-gradient(135deg, #1B6C6D 0%, #155859 100%);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 50px;
+            box-shadow: 0 4px 16px rgba(27, 108, 109, 0.3);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 2px solid #C2E6E3;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .voucher-float-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(27, 108, 109, 0.4);
+        }
+        .voucher-float-btn .voucher-icon {
+            font-size: 20px;
+        }
+        @media (max-width: 768px) {
+            .voucher-float-btn {
+                bottom: 90px;
+                right: 16px;
+                padding: 10px 14px;
+                font-size: 12px;
+            }
+        }
     </style>
    
     <!-- MailerLite Universal -->
@@ -676,6 +760,30 @@
         </div>
     </footer>
 
+    <!-- Christmas Voucher Popup -->
+    <div id="voucherPopup" class="voucher-popup">
+        <button class="close-btn" onclick="closeVoucherPopup()" aria-label="Close popup">×</button>
+        <div class="text-center">
+            <div class="text-3xl mb-2">🎄</div>
+            <h3 class="text-xl font-bold mb-2">Christmas Special</h3>
+            <p class="text-sm mb-4 opacity-90">Give the gift of relaxation! Buy vouchers for your loved ones this Christmas.</p>
+            <a href="https://bookings.gettimely.com/restorewithangel/bb/purchase" 
+               target="_blank"
+               class="inline-block bg-[#C2E6E3] text-[#1B6C6D] font-bold px-6 py-3 rounded-full hover:bg-[#a3c5c2] transition-colors shadow-lg">
+                Buy Vouchers Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Voucher Button -->
+    <a href="https://bookings.gettimely.com/restorewithangel/bb/purchase" 
+       target="_blank"
+       class="voucher-float-btn"
+       aria-label="Buy Christmas Vouchers">
+        <span class="voucher-icon">🎁</span>
+        <span>Vouchers</span>
+    </a>
+
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/447923169525" target="_blank" aria-label="Contact me on WhatsApp" id="whatsapp-float"
        style="position: fixed; bottom: 24px; right: 24px; z-index: 1000; background: #25D366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: box-shadow 0.2s; font-size: 32px;">
@@ -941,6 +1049,20 @@
       }
       window.addEventListener('scroll', onScroll);
       onScroll(); // trigger on load
+    });
+
+    // Christmas Voucher Popup
+    function closeVoucherPopup() {
+      const popup = document.getElementById('voucherPopup');
+      popup.classList.remove('show');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const popup = document.getElementById('voucherPopup');
+      // Show popup after 3 seconds on every page load
+      setTimeout(function() {
+        popup.classList.add('show');
+      }, 3000);
     });
     </script>
 </body>
